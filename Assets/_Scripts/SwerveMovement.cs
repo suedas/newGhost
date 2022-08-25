@@ -36,26 +36,26 @@ public class SwerveMovement : MonoBehaviour
                     UiController.instance.tapToStartPanel.SetActive(false);
                 }
                 lastFrameFingerPositionX = Input.mousePosition.x;
-                lastMousePosY = Input.mousePosition.y;
-                firstMousePosY = Input.mousePosition.y;
+                //lastMousePosY = Input.mousePosition.y;
+                //firstMousePosY = Input.mousePosition.y;
             }
             else if (Input.GetMouseButton(0))
             {
                 moveFactorX = Input.mousePosition.x - lastFrameFingerPositionX;
                 lastFrameFingerPositionX = Input.mousePosition.x;
-                lastMousePosY = Input.mousePosition.y;
-                if (lastMousePosY - firstMousePosY > swipeDistance && !isHuman) // yukari
-                {
-                    firstMousePosY = lastMousePosY;
-                    PlayerController.instance.Human();
-                    Debug.Log("insan yap");
-                }
-                else if (firstMousePosY - lastMousePosY > swipeDistance && isHuman) // asagi
-                {
-                    firstMousePosY = lastMousePosY;
-                    PlayerController.instance.Ghost();
-                    Debug.Log("hayalet yap");
-                }
+                //lastMousePosY = Input.mousePosition.y;
+                //if (lastMousePosY - firstMousePosY > swipeDistance && !isHuman) // yukari
+                //{
+                //    firstMousePosY = lastMousePosY;
+                //    PlayerController.instance.Human();
+                //    Debug.Log("insan yap");
+                //}
+                //else if (firstMousePosY - lastMousePosY > swipeDistance && isHuman) // asagi
+                //{
+                //    firstMousePosY = lastMousePosY;
+                //    PlayerController.instance.Ghost();
+                //    Debug.Log("hayalet yap");
+                //}
 
                 swerveAmountX = Time.deltaTime * swerveSpeed * moveFactorX;
                 swerveAmountX = Mathf.Clamp(swerveAmountX, -maxSwerveAmountX, maxSwerveAmountX);
