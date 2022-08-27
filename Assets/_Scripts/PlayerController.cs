@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour
     public Transform diamondTarget;
     public GameObject box;
     public GameObject humans;
-    public GameObject bat;
+    public GameObject bat,dino;
+
    
     
     
@@ -65,12 +66,12 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.CompareTag("diamond"))
         {
-            if (gameObject.tag=="Player")
+            if (gameObject.tag == "Player")
             {
-                other.gameObject.transform.DOMove(diamondTarget.transform.position, .5f).OnComplete(()=> { Destroy(other.gameObject); });
+                other.gameObject.transform.DOMove(diamondTarget.transform.position, .5f).OnComplete(() => { Destroy(other.gameObject); });
                 other.gameObject.transform.DOScale(.25f, .2f);
                 GameManager.instance.IncreaseScore();
             }
@@ -81,8 +82,20 @@ public class PlayerController : MonoBehaviour
             batP.SetActive(true);
             ghost.SetActive(false);
             bat.SetActive(true);
-            
+
             //gameObject.tag = "bat";
+        }
+        else if (other.CompareTag("dino"))
+        {
+            Destroy(other.gameObject);
+            ghost.SetActive(false);
+            dino.SetActive(true);
+
+        }
+        else if (other.CompareTag("deniz"))
+        {
+            dino.SetActive(false);
+            ghost.SetActive(true);
         }
         else if (other.CompareTag("duvar"))
         {
