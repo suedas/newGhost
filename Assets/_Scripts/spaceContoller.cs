@@ -12,8 +12,9 @@ public class spaceContoller : MonoBehaviour
         {
             PlayerController.instance.bat.SetActive(false);
             PlayerController.instance.ghost.SetActive(true);
-            
-          
+            PlayerController.instance.batP.SetActive(false); 
+
+
         }
     }
 }

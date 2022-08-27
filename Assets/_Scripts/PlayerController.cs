@@ -69,12 +69,11 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("diamond"))
         {
-            if (gameObject.tag == "Player")
-            {
+          
                 other.gameObject.transform.DOMove(diamondTarget.transform.position, .5f).OnComplete(() => { Destroy(other.gameObject); });
                 other.gameObject.transform.DOScale(.25f, .2f);
                 GameManager.instance.IncreaseScore();
-            }
+            
         }
         else if (other.CompareTag("bat"))
         {
@@ -87,6 +86,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("dino"))
         {
+            batP.SetActive(true);
             Destroy(other.gameObject);
             ghost.SetActive(false);
             dino.SetActive(true);

@@ -41,6 +41,8 @@ TagManager:
   - fall
   - human
   - bat
+  - dino
+  - deniz
   layers:
   - Default
   - TransparentFX
