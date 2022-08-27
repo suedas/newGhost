@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class spaceContoller : MonoBehaviour
 {
+   
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("a");
-        if (other.CompareTag("bat"))
+        if (other.CompareTag("ghost"))
         {
-            Debug.Log("selamm");
-            other.GetComponent<Animator>().SetBool("fly", true);
+            PlayerController.instance.bat.SetActive(false);
+            PlayerController.instance.ghost.SetActive(true);
+            
+          
         }
     }
 }

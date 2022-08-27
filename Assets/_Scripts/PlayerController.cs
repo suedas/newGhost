@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     float blendTwo = 0;
     public GameObject circleP;
     public GameObject boomP;
-    public GameObject starP;
+    public GameObject starP,batP;
     public GameObject fýckP,ruzgar;
     public Animator anim;
     public  Animator idleGhost;
@@ -78,9 +78,11 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("bat"))
         {
             Destroy(other.gameObject);
+            batP.SetActive(true);
             ghost.SetActive(false);
             bat.SetActive(true);
-            gameObject.tag = "bat";
+            
+            //gameObject.tag = "bat";
         }
         else if (other.CompareTag("duvar"))
         {
