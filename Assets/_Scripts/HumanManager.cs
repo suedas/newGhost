@@ -44,8 +44,8 @@ public class HumanManager : MonoBehaviour
     {
         if (other.CompareTag("ghost"))
         {
-            StartCoroutine(PlayerController.instance.swipeController());
-           
+         
+          
             StartCoroutine(ghostAnim(other.gameObject));          
             child = transform.childCount;
           
