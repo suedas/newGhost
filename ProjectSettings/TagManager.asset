@@ -4,21 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - obstacle
-  - collectible
   - finish
-  - Missile
-  - collectibleGhost
-  - collectiblePlayer
   - ghost
-  - obstacleghost
-  - obstaclePalyer
   - duvar
   - bosluk
-  - mazgal
-  - hunter
-  - fan
-  - basamak
   - end
   - 1x
   - 2x
@@ -30,19 +19,13 @@ TagManager:
   - 8x
   - 9x
   - 10x
-  - oyunsonubasamak
-  - oyunsonumazgal
   - diamond
-  - boxbutton
-  - cagebutton
-  - boslukbutton
-  - basamakbutton
-  - fanbutton
-  - fall
-  - human
   - bat
   - dino
   - deniz
+  - Undefined
+  - hayalet
+  - gary
   layers:
   - Default
   - TransparentFX

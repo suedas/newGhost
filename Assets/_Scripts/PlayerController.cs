@@ -17,53 +17,15 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    public GameObject ghost;
-    public GameObject player;
-    public CinemachineVirtualCamera cb;
-
-    public  SkinnedMeshRenderer skinnedMeshRenderer;
-    public Mesh skinnedMesh;
-    float blendOne = 0;
-    float blendTwo = 0;
-    public GameObject circleP;
-    public GameObject boomP;
-    public GameObject starP,batP;
-    public GameObject fýckP,ruzgar;
+    public GameObject ghost;   
+    public GameObject batP;
     public Animator anim;
     public  Animator idleGhost;
-    public int count;
-    public Transform diamondTarget;
-    public GameObject box;
-    public GameObject humans;
-    public GameObject bat,dino;
+    public Transform diamondTarget; 
+    public GameObject bat,dino,gary,gergedan,monkey,kertenkele,tospa,penguen;
 
-   
-    
-    
-    //public TailAnimator2 sagTail, solTail;
-   
-    private void Start()
-    {
-        
-        anim =player.GetComponent<Animator>();      
-        
-    }
-    public void Ghost()
-    {
-        SwerveMovement.instance.isHuman = false;
-        ghost.SetActive(true);
-        gameObject.tag = "ghost";
-        player.SetActive(false);
-    }
-    public void Human()
-    {
-        SwerveMovement.instance.isHuman = true;
-        player.SetActive(true);
-        gameObject.tag = "Player";
-        anim.SetBool("run", true);
-        ghost.SetActive(false);
-    
-    }
+
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -74,10 +36,11 @@ public class PlayerController : MonoBehaviour
                 other.gameObject.transform.DOScale(.25f, .2f);
                 GameManager.instance.IncreaseScore();
             
-        }
+        }      
         else if (other.CompareTag("bat"))
         {
             Destroy(other.gameObject);
+            gameObject.tag = "bat";
             batP.SetActive(true);
             ghost.SetActive(false);
             bat.SetActive(true);
@@ -87,25 +50,103 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("dino"))
         {
             batP.SetActive(true);
+            gameObject.tag = "dino";
             Destroy(other.gameObject);
             ghost.SetActive(false);
             dino.SetActive(true);
 
         }
-        else if (other.CompareTag("deniz"))
+        else if (other.CompareTag("gary"))
         {
-            dino.SetActive(false);
-            ghost.SetActive(true);
+            gameObject.tag = "gary";
+            Destroy(other.gameObject);
+            gary.SetActive(true);
+            ghost.SetActive(false);
+            
         }
-    
-   
+        else if (other.CompareTag("gergedan"))
+        {
+            gameObject.tag = "gergedan";
+            Destroy(other.gameObject);
+            gergedan.SetActive(true);
+            ghost.SetActive(false);
+
+        }
+        else if (other.CompareTag("duvar"))
+        {
+            if (gameObject.tag == "gergedan")
+            {
+                Debug.Log("duvarlarý kýr");
+
+            }
+            else
+            {
+                Debug.Log("fail ");
+            }
+        }
+        else if (other.CompareTag("demirduvar"))
+        {
+            if (gameObject.tag=="gergedan")
+            {
+                Debug.Log("gergedan yandý");
+            }
+
+        }
+        else if (other.CompareTag("monkey"))
+        {
+            gameObject.tag = "monkey";
+            Destroy(other.gameObject);
+            monkey.SetActive(true);
+            ghost.SetActive(false);
+
+        }
+        else if (other.CompareTag("kertenkele"))
+        {
+            gameObject.tag = "kertenkele";
+            Destroy(other.gameObject);
+            kertenkele.SetActive(true);
+            ghost.SetActive(false);
+        }
+        else if (other.CompareTag("tosba"))
+        {
+            gameObject.tag = "tosba";
+            Destroy(other.gameObject);
+            tospa.SetActive(true);
+            ghost.SetActive(false);
+        }
+        else if (other.CompareTag("penguen"))
+        {
+            gameObject.tag = "penguen";
+            Destroy(other.gameObject);
+            penguen.SetActive(true);
+            ghost.SetActive(false);
+        }
+        
+        else if (other.CompareTag("hayalet"))
+        {
+            int characters = transform.childCount;
+            Debug.Log("sel");
+            ghost.SetActive(true);
+            gameObject.tag = "ghost";
+            for (int i = 1; i < characters; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+        else if (other.CompareTag("buzul"))
+        {
+            if (gameObject.tag=="penguen")
+            {
+                Debug.Log("yandý");
+
+            }
+        }
         else if (other.CompareTag("finish"))
         {
-
-            PlayerMovement.instance.speed = 12f;
-            ruzgar.SetActive(true);
-        
+            GameManager.instance.isContinue = false;
         }
+        
+
           
     }
     
@@ -123,7 +164,6 @@ public class PlayerController : MonoBehaviour
         PlayerMovement.instance.transform.position = Vector3.zero;
         transform.position = Vector3.zero;
         GameManager.instance.isContinue = false;
-        ruzgar.SetActive(false);
         SwerveMovement.instance.isSwipe = true;
         UiController.instance.gamePanel.SetActive(true);
     }
