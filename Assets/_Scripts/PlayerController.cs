@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public  Animator idleGhost;
     public Transform diamondTarget; 
     public GameObject bat,dino,gary,gergedan,monkey,kertenkele,tospa,penguen;
+    public GameObject crack;
 
 
 
@@ -59,17 +60,23 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("gary"))
         {
             gameObject.tag = "gary";
+            batP.SetActive(true);
             Destroy(other.gameObject);
             gary.SetActive(true);
             ghost.SetActive(false);
-            
+      
+
+
         }
         else if (other.CompareTag("gergedan"))
         {
             gameObject.tag = "gergedan";
+            batP.SetActive(true);
             Destroy(other.gameObject);
             gergedan.SetActive(true);
             ghost.SetActive(false);
+          
+
 
         }
         else if (other.CompareTag("duvar"))
@@ -77,6 +84,8 @@ public class PlayerController : MonoBehaviour
             if (gameObject.tag == "gergedan")
             {
                 Debug.Log("duvarlarý kýr");
+                //Instantiate(crack, other.transform.position, Quaternion.Euler(0,90,0));
+                //Destroy(other.gameObject);
 
             }
             else
@@ -95,6 +104,7 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("monkey"))
         {
             gameObject.tag = "monkey";
+            batP.SetActive(true);
             Destroy(other.gameObject);
             monkey.SetActive(true);
             ghost.SetActive(false);
@@ -103,6 +113,7 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("kertenkele"))
         {
             gameObject.tag = "kertenkele";
+            batP.SetActive(true);
             Destroy(other.gameObject);
             kertenkele.SetActive(true);
             ghost.SetActive(false);
@@ -110,6 +121,7 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("tosba"))
         {
             gameObject.tag = "tosba";
+            batP.SetActive(true);
             Destroy(other.gameObject);
             tospa.SetActive(true);
             ghost.SetActive(false);
@@ -117,6 +129,7 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("penguen"))
         {
             gameObject.tag = "penguen";
+            batP.SetActive(true);
             Destroy(other.gameObject);
             penguen.SetActive(true);
             ghost.SetActive(false);
