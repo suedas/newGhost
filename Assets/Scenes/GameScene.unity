@@ -185,7 +185,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8612313}
-  m_LocalRotation: {x: 0.13630024, y: 0.000000014762097, z: -0.0000000020310318, w: 0.9906676}
+  m_LocalRotation: {x: 0.13630025, y: -1.7597791e-15, z: 2.007327e-17, w: 0.9906676}
   m_LocalPosition: {x: 0, y: 6.81, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3207,8 +3207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541c09c4f92d6f5469179fca283aaf32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sagTail: {fileID: 500997611}
-  solTail: {fileID: 500997612}
 --- !u!1001 &544715054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6992,6 +6990,7 @@ MonoBehaviour:
   kertenkele: {fileID: 83716396}
   tospa: {fileID: 1057889685}
   penguen: {fileID: 989421135}
+  crack: {fileID: 0}
 --- !u!114 &1597856537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7324,7 +7323,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654838904}
-  m_LocalRotation: {x: 0.13630024, y: 0.000000014762097, z: -0.0000000020310318, w: 0.9906676}
+  m_LocalRotation: {x: 0.13630025, y: -1.7597791e-15, z: 2.007327e-17, w: 0.9906676}
   m_LocalPosition: {x: 0, y: 6.81, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
